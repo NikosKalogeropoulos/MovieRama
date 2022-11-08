@@ -10,6 +10,10 @@
   </head>
 
   <body>
+  <% if (params[:controller] != "sessions" && (params[:controller] != "users" && params[:action] != "show")) %>
+  <p>Logged in as <%= current_user.username%> </p>
+  <%= button_to 'Log out', session_url, method: :delete%>
+  <% end %>
     <%= yield %>
   </body>
 </html>
