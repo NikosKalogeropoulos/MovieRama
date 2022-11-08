@@ -1,0 +1,5 @@
+1. TODO user_authentication
+2. TODO movies table - controller - view
+3. TODO associations between movies - user
+4. TODO likes/hates functionality
+5. TODO filter for # of likes, # of hates, date

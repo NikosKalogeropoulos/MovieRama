@@ -1,0 +1,904 @@
+  [1m[35m (160.4ms)[0m  [1m[35mCREATE DATABASE "movie_rama_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (55.8ms)[0m  [1m[35mCREATE DATABASE "movie_rama_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2022-11-08 20:27:11 +0200
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/9ccd0ae9e2527903/variables" for ::1 at 2022-11-08 20:27:11 +0200
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8009300802085123275)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20221108182102)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20221108182102_create_users.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20221108182102_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221108182102"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-08 18:27:30.804714"], ["updated_at", "2022-11-08 18:27:30.804714"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8009300802085123275)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2022-11-08 20:27:33 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nickkalogeropoulos/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant UsersController:
+
+Started POST "/__better_errors/17a036dd72f128e3/variables" for ::1 at 2022-11-08 20:27:33 +0200
+Started GET "/users/new" for ::1 at 2022-11-08 20:44:59 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 140ms (Views: 126.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 20:45:25 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.2ms)
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 20:46:02 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 20:46:10 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 20:46:49 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveModel::UnknownAttributeError - unknown attribute 'password' for User.:
+  app/controllers/users_controller.rb:12:in `create'
+
+Started POST "/__better_errors/3970301e3298c4c9/variables" for ::1 at 2022-11-08 20:46:49 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:49:20 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 5.3ms)
+
+
+
+NameError - uninitialized constant User::BCrypt:
+  app/models/user.rb:10:in `password='
+  app/controllers/users_controller.rb:12:in `create'
+
+Started POST "/__better_errors/2411be676af97965/variables" for ::1 at 2022-11-08 20:49:21 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:49:40 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nickkalogeropoulos/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 4.6ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_12680'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_12660'
+  app/controllers/users_controller.rb:18:in `create'
+
+Started POST "/__better_errors/c32ca353773baed2/variables" for ::1 at 2022-11-08 20:49:40 +0200
+Started POST "/__better_errors/c32ca353773baed2/eval" for ::1 at 2022-11-08 20:50:10 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:51:44 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 0.7ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_12940'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_12920'
+  app/controllers/users_controller.rb:18:in `create'
+
+Started POST "/__better_errors/347c2ac4c360d2e7/variables" for ::1 at 2022-11-08 20:51:44 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:51:51 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkaloger", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkaloger"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "nkaloger"], ["password_digest", "$2a$12$2dUchzJ8F8BscX7zIJeiJ.RaWuCijBgJxCKNd.CVGf5RxWJ8Y0LNa"], ["created_at", "2022-11-08 18:51:52.175370"], ["updated_at", "2022-11-08 18:51:52.175370"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13
+Completed 500 Internal Server Error in 286ms (ActiveRecord: 2.8ms)
+
+
+
+NoMethodError - undefined method `login!' for #<UsersController:0x000000011baecfb0>:
+  app/controllers/users_controller.rb:14:in `create'
+
+Started POST "/__better_errors/dfd0e8fd47c55b55/variables" for ::1 at 2022-11-08 20:51:52 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:52:49 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkaloger", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkaloger"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 3.4ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_14680'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_14660'
+  app/controllers/users_controller.rb:17:in `create'
+
+Started POST "/__better_errors/88d57c8c9837b33c/variables" for ::1 at 2022-11-08 20:52:49 +0200
+Started POST "/__better_errors/88d57c8c9837b33c/eval" for ::1 at 2022-11-08 20:53:51 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:56:41 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulos", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 3.0ms)
+
+
+
+RuntimeError - :
+  app/controllers/users_controller.rb:13:in `create'
+
+Started POST "/__better_errors/a3d70e0658a6511c/variables" for ::1 at 2022-11-08 20:56:41 +0200
+Started POST "/__better_errors/a3d70e0658a6511c/eval" for ::1 at 2022-11-08 20:56:45 +0200
+Started POST "/__better_errors/a3d70e0658a6511c/eval" for ::1 at 2022-11-08 20:56:54 +0200
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "nkalogeropoulos"], ["password_digest", "$2a$12$RkdeK9Je.NZxjjIKuL22qeLpgmw6DUUC3NWpEg1LLE8RxeCwAWHXC"], ["created_at", "2022-11-08 18:56:54.065983"], ["updated_at", "2022-11-08 18:56:54.065983"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13
+Started POST "/__better_errors/a3d70e0658a6511c/eval" for ::1 at 2022-11-08 20:56:57 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:57:31 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulos", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 3.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_17900'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_17880'
+  app/controllers/users_controller.rb:17:in `create'
+
+Started POST "/__better_errors/0bfb2a4095ae933b/variables" for ::1 at 2022-11-08 20:57:31 +0200
+Started POST "/__better_errors/0bfb2a4095ae933b/eval" for ::1 at 2022-11-08 20:57:54 +0200
+Started POST "/__better_errors/0bfb2a4095ae933b/variables" for ::1 at 2022-11-08 20:58:00 +0200
+Started POST "/__better_errors/0bfb2a4095ae933b/variables" for ::1 at 2022-11-08 20:58:03 +0200
+Started POST "/__better_errors/0bfb2a4095ae933b/eval" for ::1 at 2022-11-08 20:58:11 +0200
+Started POST "/__better_errors/0bfb2a4095ae933b/eval" for ::1 at 2022-11-08 20:58:14 +0200
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:17
+Started POST "/users" for ::1 at 2022-11-08 20:58:33 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulos", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 3.2ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_19520'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_19500'
+  app/controllers/users_controller.rb:17:in `create'
+
+Started POST "/__better_errors/042202a88686a271/variables" for ::1 at 2022-11-08 20:58:33 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:58:37 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulosa", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulosa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "nkalogeropoulosa"], ["password_digest", "$2a$12$5tSdYK59wmVr64rn5.yTeul.kHI6P3aqSvIONuKMrcJ1uI11EQaIy"], ["created_at", "2022-11-08 18:58:37.867121"], ["updated_at", "2022-11-08 18:58:37.867121"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to 
+Completed 500 Internal Server Error in 295ms (ActiveRecord: 1.5ms)
+
+
+
+NoMethodError - undefined method `new_url' for #<UsersController:0x000000011ea26b00>
+Did you mean?  new_user_url:
+  app/controllers/users_controller.rb:14:in `create'
+
+Started POST "/__better_errors/f768f8687eceb788/variables" for ::1 at 2022-11-08 20:58:38 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:58:57 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulosa", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulosa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 3.2ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_21180'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_21160'
+  app/controllers/users_controller.rb:17:in `create'
+
+Started POST "/__better_errors/b01d16e8ad9d5470/variables" for ::1 at 2022-11-08 20:58:57 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:59:02 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Ip6xTi3XF98dmFMf2UTotvpxenEeLhNGz1XnM0NJV+KfRdfZAYsdMDz7BGoJP6LOX7+B27frAUC1pOUh2hVLHQ==", "user"=>{"username"=>"nkalogeropoulosaas", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulosaas"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "nkalogeropoulosaas"], ["password_digest", "$2a$12$nq6ym9jsVEzaeqnAM./NLOXCvhD.e0ipH9fmYz4ml4IdzuCtVtUKC"], ["created_at", "2022-11-08 18:59:02.634196"], ["updated_at", "2022-11-08 18:59:02.634196"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 254ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 20:59:02 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.2ms)
+  Rendered users/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 76ms (Views: 75.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 20:59:11 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"DS47WlvnQ//LS4QXobDwagoDQBcW9J44DzSsHonaS7aw9V3Nd7tJEOoo02Jxy7oSr827vb8xjD51xa4MEIZXSQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb___4250601671501666297_21520'
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__2540610628546312181_21500'
+  app/controllers/users_controller.rb:17:in `create'
+
+Started POST "/__better_errors/e5c544cde3679615/variables" for ::1 at 2022-11-08 20:59:11 +0200
+Started POST "/users" for ::1 at 2022-11-08 20:59:33 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"DS47WlvnQ//LS4QXobDwagoDQBcW9J44DzSsHonaS7aw9V3Nd7tJEOoo02Jxy7oSr827vb8xjD51xa4MEIZXSQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 257ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 20:59:33 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.2ms)
+  Rendered users/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:01:44 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"tzVvDo+jXixBZbSHRUBG2YhwZc/ZP8vlEDGdmYDNyvAK7gmZo/9Uw2AG4/KVOwyhLb6eZXD62eNqwJ+LGZHWDw==", "user"=>{"username"=>"dkaloger", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dkaloger"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "dkaloger"], ["password_digest", "$2a$12$.PhV3TAkcxmmGAfnX7R1CuNm/YmbSSBTViLTYZG57MONtdETZEIKe"], ["created_at", "2022-11-08 19:01:44.855940"], ["updated_at", "2022-11-08 19:01:44.855940"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 252ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:01:44 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.2ms)
+  Rendered users/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:07:54 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2022-11-08 21:08:05 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:09:17 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:09:54 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:11:25 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:11:32 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:13:18 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/session/new" for ::1 at 2022-11-08 21:13:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/session/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users/new" for ::1 at 2022-11-08 21:17:53 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2022-11-08 21:18:46 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 8.5ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:19:13 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"MQ6rje/LYzlv0XE923bVNU+19/y9mprYL5yDCp7ZyBKM1c0aw5dp1k6yJkgLDZ9N6nsMVhRfiN5VbYEYB4XU7Q==", "user"=>{"username"=>"Hey", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 2.7ms)
+
+
+
+RuntimeError - :
+  app/controllers/users_controller.rb:12:in `create'
+
+Started POST "/__better_errors/b45c0d5ec83fdffa/variables" for ::1 at 2022-11-08 21:19:14 +0200
+Started POST "/__better_errors/b45c0d5ec83fdffa/eval" for ::1 at 2022-11-08 21:19:35 +0200
+Started POST "/__better_errors/b45c0d5ec83fdffa/eval" for ::1 at 2022-11-08 21:19:38 +0200
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Hey"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Hey"], ["password_digest", "$2a$12$PA/kbxP6NBBaeIjTRzI3LO2p.qvtssQ7O7Pe909Rolz4tEk.JycJ6"], ["created_at", "2022-11-08 19:19:38.810524"], ["updated_at", "2022-11-08 19:19:38.810524"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Started POST "/users" for ::1 at 2022-11-08 21:19:50 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"MQ6rje/LYzlv0XE923bVNU+19/y9mprYL5yDCp7ZyBKM1c0aw5dp1k6yJkgLDZ9N6nsMVhRfiN5VbYEYB4XU7Q==", "user"=>{"username"=>"Hey", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Hey"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 265ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:19:50 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:19:56 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"MICCOAC6P/DI+YTW4ISdA21bbypCnBWHJ8sV1MSP3C2NW+SvLOY1H+ma06Mw/9d7yJWUgOtZB4FdOhfGXdPA0g==", "user"=>{"username"=>"heya", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "heya"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "heya"], ["password_digest", "$2a$12$qOLRHeT7u7HbdNTbYei5eu9hZERPtAv56s5DLgSaom/VrR1QtBdj6"], ["created_at", "2022-11-08 19:19:56.697403"], ["updated_at", "2022-11-08 19:19:56.697403"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 250ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:19:56 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:19:59 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"xSfrfDkdD1AUUsldnEHHZ30RyohwOI81KdU8eQqmhk54/I3rFUEFvzUxnihMOo0f2N8xItn9nTNTJD5rk/qasQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 257ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:20:00 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:20:12 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:20:18 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"tN7TJ/ZRKn/zERIxAeitlLOymKmI3Zz5MlzhFtlEBhMJBbWw2g0gkNJyRUTRk+fsFnxjAyEYjv9IreMEQBga7A==", "user"=>{"username"=>"Donte", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Donte"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Donte"], ["password_digest", "$2a$12$LmQhzPXjPRxl8wMlZ42DjOaNcN6JLoEzvNhyNufsuSFPj5Kwiy6uW"], ["created_at", "2022-11-08 19:20:19.185323"], ["updated_at", "2022-11-08 19:20:19.185323"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 286ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:20:19 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:20:22 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"cNoZfSzu/jAwsUQg+Z0a5saOTie0yMFRuo1R/9qO9UrNAX/qALL03xHSE1Up5lCeY0C1jR0N01fAfFPtQ9LptQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 251ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:20:22 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:21:21 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:21:23 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"zXHFk/rwOv+RKnP9DOI9Dr1srrBwfMwr+LFNqQhvV85wqqME1qwwELBJJIjcmXd2GKJVGtm53i2CQE+7kTNLMQ==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 260ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:21:23 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:22:31 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:22:33 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"3Rwu0Z+3mBZnkWTrSuWzAvBabVSwiwRTY4+nGQ24hAZgx0hGs+uS+UbyM56anvl6VZSW/hlOFlUZfqULlOSY+Q==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 257ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:22:33 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:22:54 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-08 21:22:56 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"wat8lWSCxctNpouobvEgkJoViG0GtDEY7EW91pBVCT98cBoCSN7PJGzF3N2+imroP9tzx69xIx6WtL/ECQkVwA==", "user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 248ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-08 21:22:56 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
