@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # add show for link of the user
   resources :users, only: [:create, :new, :show]
+
+  resource :session, only: [:create, :new]
 end
