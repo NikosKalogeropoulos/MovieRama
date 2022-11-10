@@ -7,4 +7,19 @@
     <br>
     User: <%= movie.user.username %>
     <br>
+    likes: <%= movie.likes %> 
+   <% unless movie.user == current_user %> 
+        <%= link_to 'like', like_movie_url(movie), method: :post %>
+    <% end %>
+    <br>
+    hates: <%= movie.hates %>   
+    <% unless movie.user == current_user %>
+        <%= link_to 'hate', hate_movie_url(movie), method: :post%>
+    <% end %>
+        <% if current_user.likes_movie(movie.id) > 0%>
+            You currently like this movie 
+        <% elsif current_user.hates_movie(movie.id) > 0 %>
+            You currently hate this movie   
+        <% end %>
 </li>
+<br>

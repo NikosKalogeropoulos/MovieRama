@@ -1,7 +1,9 @@
 1. TODO user_authentication --> Done
-2. TODO movies table - controller - view
-    while creating the create action, there is an error popping up because I don't have a user to test this
-    and because you need to put a user id in the form -> next step add the movie create and new action inside the user resources
-3. TODO associations between movies - user
+2. TODO movies table - controller - view --> Done
+3. TODO associations between movies - user --> Done
 4. TODO likes/hates functionality
 5. TODO filter for # of likes, # of hates, date
+
+
+4.1.fix users/user_id/movies -> go into the index action of movies and check if params[:id] exists and make cases
+4.2. change the movie view with the likes and hates of the movie and check that it works

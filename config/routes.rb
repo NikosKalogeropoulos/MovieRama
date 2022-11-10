@@ -2,10 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # add show for link of the user
-  resources :users, only: [:create, :new, :show] 
+  resources :users, only: [:create, :new, :show] do
+     resources :movies, only: [:index]
+  end
 
 
-  resources :movies
+  resources :movies do
+    member do
+      post :like, to: 'movies#like', as: 'like'
+      post :hate, to: 'movies#hate', as: 'hate'
+    end
+  end
 
   resource :session, only: [:create, :new, :destroy]
 

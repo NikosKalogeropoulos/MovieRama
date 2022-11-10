@@ -9,9 +9,16 @@ class User < ApplicationRecord
     attr_reader :password
 
     has_many :movies,
+        dependent: :destroy,
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :Movie
+
+    has_many :reactions
+
+    has_many :movies_reacted,
+        through: :reactions,
+        source: :movie
 
     def self.generate_session_token
         SecureRandom::urlsafe_base64(16)
@@ -36,6 +43,14 @@ class User < ApplicationRecord
 
     def is_password?(password)
         BCrypt::Password.new(self.password_digest).is_password?(password)
+    end
+
+    def likes_movie(movie_id)
+        self.reactions.where(ttype: Reaction::LIKE, movie_id: movie_id).count
+    end
+
+    def hates_movie(movie_id)
+        self.reactions.where(ttype: Reaction::HATE, movie_id: movie_id).count
     end
 
     private

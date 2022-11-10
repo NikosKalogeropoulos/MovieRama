@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if user.save
             redirect_to new_user_url
         else 
-            flash[:errors] = user.errors.full_messages
+            flash.now[:errors] = user.errors.full_messages
             redirect_to new_user_url
         end
     end

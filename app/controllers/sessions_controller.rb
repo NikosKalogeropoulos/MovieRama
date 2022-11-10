@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by_credentials(params[:user][:username], params[:user][:password])
         if user.nil?
-            flash[:errors] = ["Credentials were wrong"]
+            flash.now[:errors] = ["Credentials were wrong"]
             render :new
         else
             user.reset_session_token!
