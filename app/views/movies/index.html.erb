@@ -1,6 +1,9 @@
 <%= render 'shared/errors'%>
 <h1>All movies</h1>
-
+<% if @user %>
+<%= link_to "Back", movies_url %>
+<h2><%= @user.username %> profile</h1>
+<% end %>
 <ul>
-    <%= render @movies %>
+    <%= render @movies%>
 </ul>

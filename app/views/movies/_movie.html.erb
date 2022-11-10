@@ -5,8 +5,10 @@
     <br>
     Date: <%= movie.created_at %>
     <br>
-    User: <%= movie.user.username %>
+    <% unless @user %>
+    User: <%= link_to movie.user.username, user_movies_url(movie.user) %>
     <br>
+    <% end %>
     likes: <%= movie.likes %> 
    <% unless movie.user == current_user %> 
         <%= link_to 'like', like_movie_url(movie), method: :post %>

@@ -4,7 +4,12 @@ class MoviesController < ApplicationController
    after_action :reset_reaction, only: [:like, :hate]
 
     def index
-        @movies = Movie.all.includes(:user)
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            @movies = @user.movies
+        else
+            @movies = Movie.all.includes(:user)
+        end
     end
     
     def user_cant_react_to_his_movies
@@ -60,11 +65,11 @@ class MoviesController < ApplicationController
     def update_reaction_type(reaction_type)
         if reaction.ttype == reaction_type
             reaction.destroy
-            redirect_to movies_url 
+            redirect_back(fallback_location: movies_url) 
         else
             reaction.ttype = reaction_type
             if reaction.save
-                redirect_to movies_url
+                redirect_back(fallback_location: movies_url) 
             else
                 flash.now[:errors] = reaction.errors.full_messages
                 render movies_url
@@ -87,7 +92,7 @@ class MoviesController < ApplicationController
     def create_new_reaction(reaction_type)
         @reaction = Reaction.new(user_id: current_user.id, movie_id: params[:id], ttype: reaction_type)
         if @reaction.save
-            redirect_to movies_url
+            redirect_back(fallback_location: movies_url) 
         else
             flash.now[:errors] = @reaction.errors.full_messages
             render movies_url
