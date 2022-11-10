@@ -11,8 +11,12 @@
 
   <body>
   <% if (params[:controller] != "sessions" && (params[:controller] != "users" && params[:action] != "show")) %>
-  <p>Logged in as <%= current_user.username%> </p>
-  <%= button_to 'Log out', session_url, method: :delete%>
+    <% if current_user %>
+      <p>Logged in as <%= current_user.username%> </p>
+      <%= button_to 'Log out', session_url, method: :delete%>
+    <% else %>
+      <%= link_to 'Log in', controller: "sessions", action: "new" %> or <%= button_to 'Sign up', {controller: :users, action: "new"}, {method: :get} %>
+    <% end %>
   <% end %>
     <%= yield %>
   </body>

@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :movies,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Movie
+
     def self.generate_session_token
         SecureRandom::urlsafe_base64(16)
     end

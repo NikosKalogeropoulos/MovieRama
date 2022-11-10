@@ -1,0 +1,24 @@
+<% if params[:action] == "edit" %>
+    <% action_url = movie_url(movie) %>
+<% else %>
+    <% action_url = movies_url %>
+<% end %>
+
+<form action="<%=action_url%>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <% if action == :edit %>
+        <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+
+    <label for="title">Title</label>
+    <br>
+    <input type="text" id="title" name="movie[title]" value="<%=movie.title%>">
+    <br>
+    <label for="description">Description</label>
+    <br>
+    <textarea name="movie[description]" id="description" cols="30" rows="10"></textarea>
+        <%= movie.description %>
+    </textarea>
+    <br>
+    <input type="submit" value="<%=(params[:action] == "edit") ? 'update movie' : 'add_movie'%>">
+</form>

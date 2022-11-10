@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         else
             user.reset_session_token!
             login!(user)
-            redirect_to new_user_url
+            redirect_to movies_url
         end
     end
 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         if !current_user.nil?
             current_user.reset_session_token!
             session[:session_token] = nil
-            redirect_to new_user_url
+            redirect_to new_session_url
         end
     end
 end

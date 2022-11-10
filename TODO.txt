@@ -1,5 +1,7 @@
-1. TODO user_authentication
+1. TODO user_authentication --> Done
 2. TODO movies table - controller - view
+    while creating the create action, there is an error popping up because I don't have a user to test this
+    and because you need to put a user id in the form -> next step add the movie create and new action inside the user resources
 3. TODO associations between movies - user
 4. TODO likes/hates functionality
 5. TODO filter for # of likes, # of hates, date
