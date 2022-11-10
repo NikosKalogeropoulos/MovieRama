@@ -10,10 +10,11 @@ class UsersController < ApplicationController
     def create
         user = User.new(user_params)
         if user.save
-            redirect_to new_user_url
+            login!(user)
+            redirect_to movies_url
         else 
             flash.now[:errors] = user.errors.full_messages
-            redirect_to new_user_url
+            render :new
         end
     end
 

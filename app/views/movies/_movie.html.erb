@@ -3,25 +3,27 @@
     <br>
     Description: <%= movie.description %>
     <br>
-    Date: <%= movie.created_at %>
+    Time Created: <%= movie.days_created%>
     <br>
     <% unless @user %>
     User: <%= link_to movie.user.username, user_movies_url(movie.user) %>
     <br>
     <% end %>
     likes: <%= movie.likes %> 
-   <% unless movie.user == current_user %> 
+   <% unless movie.user == current_user || current_user.nil?%> 
         <%= link_to 'like', like_movie_url(movie), method: :post %>
     <% end %>
     <br>
     hates: <%= movie.hates %>   
-    <% unless movie.user == current_user %>
+    <% unless movie.user == current_user  || current_user.nil?%>
         <%= link_to 'hate', hate_movie_url(movie), method: :post%>
     <% end %>
+    <% if current_user %>
         <% if current_user.likes_movie(movie.id) > 0%>
             You currently like this movie 
         <% elsif current_user.hates_movie(movie.id) > 0 %>
             You currently hate this movie   
         <% end %>
+    <% end %>
 </li>
 <br>

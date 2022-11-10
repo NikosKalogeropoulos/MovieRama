@@ -23367,3 +23367,1730 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 1.7ms)
 
 
+Started DELETE "/session" for ::1 at 2022-11-10 22:57:28 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"awhR1p2f9kNCFBnyhUyh1xMzSn+QYEhBJ7vW9MwxgJLW0zdBscP8rGN3TodVN+uvtv2x1TmlWkddStTmVW2cbQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "byIv7qMdqoWjlVC9GeERRw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Nikos Kalogeropoulos"], ["id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "e7Ws5-Sgzcw3SOSlpOkPBQ"], ["updated_at", "2022-11-10 20:57:28.047137"], ["id", 17]]
+  ↳ app/models/user.rb:35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/session/new" for ::1 at 2022-11-10 22:57:28 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 22:57:41 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (5.4ms)
+  Rendered movies/index.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `likes_movie' for nil:NilClass:
+  app/views/movies/_movie.html.erb:21:in `_app_views_movies__movie_html_erb__1937480323594270922_181040'
+  app/views/movies/index.html.erb:8:in `_app_views_movies_index_html_erb__4542519882539699561_181000'
+
+Started POST "/__better_errors/5027db4afd128127/variables" for ::1 at 2022-11-10 22:57:41 +0200
+Started GET "/movies" for ::1 at 2022-11-10 22:59:01 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (6.6ms)
+  Rendered movies/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/movies/14/like" for ::1 at 2022-11-10 22:59:04 +0200
+Processing by MoviesController#like as HTML
+  Parameters: {"authenticity_token"=>"1CKmzN+0DOzrTk5dIODHLzm0DaIvVLHU6381CXqtpS9p+cBb8+gGA8otGSjwm41XnHr2CIaRo9KRjjcb4/G50A==", "id"=>"14"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:17
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/controllers/movies_controller.rb:85:in `reaction'
+  app/controllers/movies_controller.rb:81:in `user_already_reacted?'
+  app/controllers/movies_controller.rb:48:in `react'
+  app/controllers/movies_controller.rb:56:in `like'
+
+Started POST "/__better_errors/85b7b063a5384552/variables" for ::1 at 2022-11-10 22:59:04 +0200
+Started POST "/movies/14/like" for ::1 at 2022-11-10 22:59:55 +0200
+Processing by MoviesController#like as HTML
+  Parameters: {"authenticity_token"=>"1CKmzN+0DOzrTk5dIODHLzm0DaIvVLHU6381CXqtpS9p+cBb8+gGA8otGSjwm41XnHr2CIaRo9KRjjcb4/G50A==", "id"=>"14"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:17
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/controllers/movies_controller.rb:85:in `reaction'
+  app/controllers/movies_controller.rb:81:in `user_already_reacted?'
+  app/controllers/movies_controller.rb:48:in `react'
+  app/controllers/movies_controller.rb:56:in `like'
+
+Started POST "/__better_errors/8062c3d82e68eebb/variables" for ::1 at 2022-11-10 22:59:55 +0200
+Started GET "/movies" for ::1 at 2022-11-10 23:00:18 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.5ms)
+  Rendered movies/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/session/new" for ::1 at 2022-11-10 23:00:23 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2022-11-10 23:00:30 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UiRQbjwMmw6P3OOtbfvG9M+S6AwyGWX0jKCl1Sgryafv/zb5EFCR4a6/tNi9gIyMalwTppvcd/L2UafHsXfVWA==", "user"=>{"username"=>"Nikos Kalogeropoulos", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Nikos Kalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Nikos Kalogeropoulos"], ["id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "jnzLkP1ZCfT0cJ-VJRSn9Q"], ["updated_at", "2022-11-10 21:00:30.750684"], ["id", 17]]
+  ↳ app/models/user.rb:35
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 253ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:00:30 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jnzLkP1ZCfT0cJ-VJRSn9Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "HATE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "HATE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:53
+  Rendered collection of movies/_movie.html.erb [3 times] (5.5ms)
+  Rendered movies/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:00:36 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jnzLkP1ZCfT0cJ-VJRSn9Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "HATE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 17], ["ttype", "HATE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:53
+  Rendered collection of movies/_movie.html.erb [3 times] (11.0ms)
+  Rendered movies/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 28ms (Views: 21.5ms | ActiveRecord: 4.9ms)
+
+
+Started DELETE "/session" for ::1 at 2022-11-10 23:00:40 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/ZcFmOAKWtjorVpetikM1mxxVa6Zccbqp20mR1JdFlpATGMPzFZQN8nODStmUkauyb+uBDC01OzdnCRVywEKpQ=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jnzLkP1ZCfT0cJ-VJRSn9Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Nikos Kalogeropoulos"], ["id", 17], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ajAZgO0GpcL_ZSwzPXj91Q"], ["updated_at", "2022-11-10 21:00:40.421615"], ["id", 17]]
+  ↳ app/models/user.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/session/new" for ::1 at 2022-11-10 23:00:40 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2022-11-10 23:01:40 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:01:41 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.5ms)
+  Rendered movies/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:01:44 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-10 23:01:52 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"VRhmHd0s9ikkk/XtVY9igvWNJjuqebfVdNVquFz+IU/owwCK8XD8xgXwopiF9Cj6UEPdkQO8pdMOJGiqxaI9sA==", "user"=>{"username"=>"hello", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hello"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 255ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:01:52 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:03:05 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-10 23:03:09 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"iAo36q3T+8hdotW5NAjxek66N+4vSGtcEn41J8warkw10VF9gY/xJ3zBgszkc7sC63TMRIaNeVpojzc1VUaysw==", "user"=>{"username"=>"hello", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hello"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 3.6ms)
+
+
+
+ActionView::MissingTemplate - Missing template http://localhost:3000/users/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/nickkalogeropoulos/Desktop/assignment/movie_rama/app/views":
+  app/controllers/users_controller.rb:16:in `create'
+
+Started POST "/__better_errors/8da0f5465480ca80/variables" for ::1 at 2022-11-10 23:03:09 +0200
+Started POST "/users" for ::1 at 2022-11-10 23:03:27 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"iAo36q3T+8hdotW5NAjxek66N+4vSGtcEn41J8warkw10VF9gY/xJ3zBgszkc7sC63TMRIaNeVpojzc1VUaysw==", "user"=>{"username"=>"hello", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hello"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 260ms (Views: 6.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for ::1 at 2022-11-10 23:04:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2022-11-10 23:04:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2022-11-10 23:04:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2022-11-10 23:04:50 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"iAo36q3T+8hdotW5NAjxek66N+4vSGtcEn41J8warkw10VF9gY/xJ3zBgszkc7sC63TMRIaNeVpojzc1VUaysw==", "user"=>{"username"=>"hello", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hello"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 259ms (Views: 6.9ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users" for ::1 at 2022-11-10 23:05:10 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"WmtHPnQ9h37TfbYux1vL41s6IWKtttKpWWK2cbNlcNjnsCGpWGGNkfIe4VsXIIGb/vTayARzwK8jk7RjKjlsJw==", "user"=>{"username"=>"nkalogeropoulos", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at", "session_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nkalogeropoulos"], ["password_digest", "$2a$12$6pcRbyGnubmbcYLO2OCY2ehgPjgdfPx8mSz5MfvpKMZg6Bcie4zD6"], ["created_at", "2022-11-10 21:05:10.631963"], ["updated_at", "2022-11-10 21:05:10.631963"], ["session_token", "lC1UdYbt01CkEUXlkqrrog"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 247ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:05:10 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-11-10 23:05:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2022-11-10 23:05:37 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (6.9ms)
+  Rendered movies/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 31ms (Views: 19.8ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:05:40 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-10 23:05:47 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"RdDKyMpK0nApx9PVsCvshVVUY7dDbR8E3C0aR8jFv0H4C6xf5hbYnwikhKBgUKb98JqYHeqoDQKm3BhVUZmjvg==", "user"=>{"username"=>"nkalogeropoulakis", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nkalogeropoulakis"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at", "session_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nkalogeropoulakis"], ["password_digest", "$2a$12$TIVw04ilkJOAIOECs4LFserVGtJGx0LEoR0/6g/gYSLjedXEdEHiK"], ["created_at", "2022-11-10 21:05:47.275888"], ["updated_at", "2022-11-10 21:05:47.275888"], ["session_token", "DtHZv4jo5c9340syeCD_uA"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 246ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:05:47 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.3ms)
+  Rendered movies/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:05:59 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.3ms)
+  Rendered movies/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:06:46 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (5.5ms)
+  Rendered movies/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users/new" for ::1 at 2022-11-10 23:06:51 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-11-10 23:06:56 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ouOC6tsgnT88Z0Gy+36tLKeFSw3QewiUiYniVx4B5NofOOR993yX0B0EFscrBedUAkuwp3m+GpLzeOBFh134JQ==", "user"=>{"username"=>"papado", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "papado"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at", "session_token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "papado"], ["password_digest", "$2a$12$JYx6CrPijxVcHPqIlbjvx./v33RUyqpVRi1TKEmy1enRVg/mYYo2m"], ["created_at", "2022-11-10 21:06:56.801708"], ["updated_at", "2022-11-10 21:06:56.801708"], ["session_token", "zTvgCBnZfY5EznpniUDqtw"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 255ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:06:56 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:53
+  Rendered collection of movies/_movie.html.erb [3 times] (6.8ms)
+  Rendered movies/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/movies/14/like" for ::1 at 2022-11-10 23:07:01 +0200
+Processing by MoviesController#like as HTML
+  Parameters: {"authenticity_token"=>"Ylmp5ndjBEdS15d4Qgz3JDMUfZrp+0Jio1DG85MICwTfgs9xWz8OqHO0wA2Sd71cltqGMEA+UGTZocThClQX+w==", "id"=>"14"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[36mReaction Load (0.3ms)[0m  [1m[34mSELECT  "reactions".* FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:76
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Create (0.9ms)[0m  [1m[32mINSERT INTO "reactions" ("ttype", "user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ttype", "LIKE"], ["user_id", 22], ["movie_id", 14], ["created_at", "2022-11-10 21:07:01.543789"], ["updated_at", "2022-11-10 21:07:01.543789"]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:85
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 12ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:07:01 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:53
+  Rendered collection of movies/_movie.html.erb [3 times] (6.2ms)
+  Rendered movies/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/movies/15/hate" for ::1 at 2022-11-10 23:07:02 +0200
+Processing by MoviesController#hate as HTML
+  Parameters: {"authenticity_token"=>"PnBpoH2wnKL5WSy7n3iy/foNhVR+g5Krp4JslZ7sh32Dqw83UeyWTdg6e85PA/iFX8N+/tdGgK3dc26HB7Cbgg==", "id"=>"15"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[36mReaction Load (0.4ms)[0m  [1m[34mSELECT  "reactions".* FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:76
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Create (0.4ms)[0m  [1m[32mINSERT INTO "reactions" ("ttype", "user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ttype", "HATE"], ["user_id", 22], ["movie_id", 15], ["created_at", "2022-11-10 21:07:02.546024"], ["updated_at", "2022-11-10 21:07:02.546024"]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:85
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 9ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:07:02 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:53
+  Rendered collection of movies/_movie.html.erb [3 times] (7.7ms)
+  Rendered movies/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/movies/16/like" for ::1 at 2022-11-10 23:07:03 +0200
+Processing by MoviesController#like as HTML
+  Parameters: {"authenticity_token"=>"tyibEhSruv4RRHTXfZDySPo13koFD3sZXEbmjfNIHmoK8/2FOPewETAnI6Kt67gwX/sl4KzKaR8mt+SfahQClQ==", "id"=>"16"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[36mReaction Load (0.2ms)[0m  [1m[34mSELECT  "reactions".* FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:76
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."movie_id" = $2 LIMIT $3[0m  [["user_id", 22], ["movie_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[36mReaction Create (0.7ms)[0m  [1m[32mINSERT INTO "reactions" ("ttype", "user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ttype", "LIKE"], ["user_id", 22], ["movie_id", 16], ["created_at", "2022-11-10 21:07:03.860624"], ["updated_at", "2022-11-10 21:07:03.860624"]]
+  ↳ app/controllers/movies_controller.rb:85
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:85
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:07:03 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 14]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "HATE"], ["movie_id", 15]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 22], ["ttype", "LIKE"], ["movie_id", 16]]
+  ↳ app/models/user.rb:49
+  Rendered collection of movies/_movie.html.erb [3 times] (5.0ms)
+  Rendered movies/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/movies/new" for ::1 at 2022-11-10 23:07:40 +0200
+Processing by MoviesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  Rendering movies/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered movies/_form.html.erb (0.4ms)
+  Rendered movies/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/session" for ::1 at 2022-11-10 23:07:55 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"c8Vm86nCzFOHdtMH9j3lbaBQKUPf7IFkDfpg4tkzFkjOHgBkhZ7GvKYVhHImRq8VBZ7S6XYpk2J3C2LwQG8Ktw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zTvgCBnZfY5EznpniUDqtw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "papado"], ["id", 22], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "-r6LpjHNinVkWwqUdClViA"], ["updated_at", "2022-11-10 21:07:55.569163"], ["id", 22]]
+  ↳ app/models/user.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/session/new" for ::1 at 2022-11-10 23:07:55 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movie/new" for ::1 at 2022-11-10 23:08:03 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/movie/new"):
+  
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies/new" for ::1 at 2022-11-10 23:08:08 +0200
+Processing by MoviesController#new as HTML
+Redirected to http://localhost:3000/movies
+Filter chain halted as :only_logged_in_user_can_create_movie rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:08:08 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.9ms)
+  Rendered movies/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/movies/new" for ::1 at 2022-11-10 23:08:12 +0200
+Processing by MoviesController#new as HTML
+Redirected to http://localhost:3000/movies
+Filter chain halted as :only_logged_in_user_can_create_movie rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:08:12 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (6.7ms)
+  Rendered movies/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:08:16 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (3.4ms)
+  Rendered movies/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:08:17 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.4ms)
+  Rendered movies/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:09:43 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (5.8ms)
+  Rendered movies/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:09:58 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (3.4ms)
+  Rendered movies/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:10:00 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.6ms)
+  Rendered movies/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:10:04 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (4.1ms)
+  Rendered movies/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:10:06 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.2ms)
+  Rendered movies/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:10:09 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (4.2ms)
+  Rendered movies/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:10:40 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (2.1ms)
+  Rendered movies/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:10:45 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.5ms)
+  Rendered movies/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:10:49 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (1.8ms)
+  Rendered movies/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:10:52 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.3ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.3ms)
+  Rendered movies/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:11:01 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (2.2ms)
+  Rendered movies/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:24 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.3ms)
+  Rendered movies/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:11:31 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (1.8ms)
+  Rendered movies/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:32 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.6ms)
+  Rendered movies/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/18/movies" for ::1 at 2022-11-10 23:11:33 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 18]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (2.0ms)
+  Rendered movies/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:36 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (4.4ms)
+  Rendered movies/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/19/movies" for ::1 at 2022-11-10 23:11:37 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (1.7ms)
+  Rendered movies/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:40 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.4ms)
+  Rendered movies/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/17/movies" for ::1 at 2022-11-10 23:11:42 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"17"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 17]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (1.8ms)
+  Rendered movies/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:44 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.2ms)
+  Rendered movies/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/18/movies" for ::1 at 2022-11-10 23:11:45 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 18]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (2.7ms)
+  Rendered movies/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:46 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.8ms)
+  Rendered movies/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/19/movies" for ::1 at 2022-11-10 23:11:47 +0200
+Processing by MoviesController#index as HTML
+  Parameters: {"user_id"=>"19"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:8
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."user_id" = $1[0m  [["user_id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/views/movies/_movie.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [1 times] (1.8ms)
+  Rendered movies/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:11:49 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:22
+  Rendered collection of movies/_movie.html.erb [3 times] (3.3ms)
+  Rendered movies/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:15:07 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  Rendered collection of movies/_movie.html.erb [3 times] (8.9ms)
+  Rendered movies/index.html.erb within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 5.4ms)
+
+
+
+NoMethodError - undefined method `time_ago_in_words' for #<Movie:0x000000010dbde7d8>:
+  app/models/movie.rb:19:in `days_created'
+  app/views/movies/_movie.html.erb:6:in `_app_views_movies__movie_html_erb__1937480323594270922_217800'
+  app/views/movies/index.html.erb:8:in `_app_views_movies_index_html_erb__4542519882539699561_217700'
+
+Started POST "/__better_errors/048f43c4924fd4c9/variables" for ::1 at 2022-11-10 23:15:07 +0200
+Started POST "/__better_errors/048f43c4924fd4c9/variables" for ::1 at 2022-11-10 23:15:47 +0200
+Started GET "/movies" for ::1 at 2022-11-10 23:15:50 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/nickkalogeropoulos/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  Rendered collection of movies/_movie.html.erb [3 times] (9.3ms)
+  Rendered movies/index.html.erb within layouts/application (27.8ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 9.6ms)
+
+
+
+NoMethodError - undefined method `time_ago_in_words' for #<Movie:0x000000014da88ec0>:
+  app/models/movie.rb:19:in `days_created'
+  app/views/movies/_movie.html.erb:6:in `_app_views_movies__movie_html_erb___1415928546793023022_14380'
+  app/views/movies/index.html.erb:8:in `_app_views_movies_index_html_erb__3287160152122331623_14180'
+
+Started POST "/__better_errors/a7c6380d010ede07/variables" for ::1 at 2022-11-10 23:15:50 +0200
+Started POST "/__better_errors/a7c6380d010ede07/eval" for ::1 at 2022-11-10 23:16:02 +0200
+Started GET "/movies" for ::1 at 2022-11-10 23:17:18 +0200
+Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - no implicit conversion of Module into String:
+  app/models/movie.rb:3:in `<main>'
+  app/controllers/movies_controller.rb:11:in `index'
+
+Started POST "/__better_errors/25e8551f1ce526af/variables" for ::1 at 2022-11-10 23:17:19 +0200
+Started GET "/movies" for ::1 at 2022-11-10 23:17:55 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  Rendered collection of movies/_movie.html.erb [3 times] (17.6ms)
+  Rendered movies/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 110ms (Views: 96.2ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/movies" for ::1 at 2022-11-10 23:18:44 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 17], ["id", 18], ["id", 19]]
+  ↳ app/views/movies/index.html.erb:8
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 14], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 15], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 16], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  Rendered collection of movies/_movie.html.erb [3 times] (5.3ms)
+  Rendered movies/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 2.9ms)
+
+

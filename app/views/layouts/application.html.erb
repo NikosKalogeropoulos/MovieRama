@@ -10,7 +10,7 @@
   </head>
 
   <body>
-  <h1>MovieRama</h1>
+  <h1> <%= link_to "MovieRama", movies_url %></h1>
   <% if (params[:controller] != "sessions" && (params[:controller] != "users" && params[:action] != "show")) %>
     <% if current_user %>
       <p>Logged in as <%= current_user.username%> </p>

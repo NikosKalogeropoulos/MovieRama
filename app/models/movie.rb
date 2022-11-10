@@ -1,4 +1,7 @@
+require 'action_view'
+require 'action_view/helpers'
 class Movie < ApplicationRecord
+    include ActionView::Helpers::DateHelper
     validates :title, presence: true, uniqueness: {scope: :user}
     validates :description, presence: true
     validates :user, presence: true
@@ -13,6 +16,10 @@ class Movie < ApplicationRecord
     has_many :users_reacted,
         through: :reactions,
         source: :user
+    
+    def days_created
+        time_ago_in_words(created_at)
+    end
     
     def likes
         @likes = self.reactions.where(ttype: Reaction::LIKE).count

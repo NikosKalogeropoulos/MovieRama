@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-   before_action :only_logged_in_user_can_create_movie, only: [:create, :new]
+   before_action :only_logged_in_user_can_create_movie_and_react, only: [:create, :new, :like, :hate]
    before_action :user_cant_react_to_his_movies, only: [:like, :hate]
    after_action :reset_reaction, only: [:like, :hate]
 
@@ -19,15 +19,6 @@ class MoviesController < ApplicationController
         end
     end
 
-    # def show
-    #     @movie = Movie.find_by(id: params[:id])
-    #     if not @movie.nil?
-    #         render :show
-    #     else
-    #         flash[:errors] = ["That movie doesn't exist"]
-    #         redirect_to movies_url
-    #     end
-    # end
 
     def new
         @movie = Movie.new
@@ -99,7 +90,7 @@ class MoviesController < ApplicationController
         end
     end
 
-    def only_logged_in_user_can_create_movie
+    def only_logged_in_user_can_create_movie_and_react
         redirect_back(fallback_location: movies_url) unless logged_in?
     end
 
