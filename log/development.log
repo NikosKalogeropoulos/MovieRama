@@ -41211,3 +41211,47 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 3.0ms)
 
 
+Started GET "/" for ::1 at 2022-11-11 10:54:49 +0200
+
+ArgumentError - wrong number of arguments (given 0, expected 1..2):
+  config/routes.rb:4:in `block in <main>'
+  config/routes.rb:1:in `<main>'
+
+Started POST "/__better_errors/32c62a623bc1da6d/variables" for ::1 at 2022-11-11 10:54:49 +0200
+Started GET "/" for ::1 at 2022-11-11 10:56:23 +0200
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kR_dD1Udvuvnin4ey02BVA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:15
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 32], ["id", 33], ["id", 34]]
+  ↳ app/views/movies/index.html.erb:25
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 26], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 26], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 32], ["ttype", "LIKE"], ["movie_id", 26]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 32], ["ttype", "HATE"], ["movie_id", 26]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 27], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 27], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 32], ["ttype", "LIKE"], ["movie_id", 27]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 32], ["ttype", "HATE"], ["movie_id", 27]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 28], ["ttype", "LIKE"]]
+  ↳ app/models/movie.rb:25
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."movie_id" = $1 AND "reactions"."ttype" = $2[0m  [["movie_id", 28], ["ttype", "HATE"]]
+  ↳ app/models/movie.rb:29
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."user_id" = $1 AND "reactions"."ttype" = $2 AND "reactions"."movie_id" = $3[0m  [["user_id", 32], ["ttype", "LIKE"], ["movie_id", 28]]
+  ↳ app/models/user.rb:49
+  Rendered collection of movies/_movie.html.erb [3 times] (12.8ms)
+  Rendered movies/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 49ms (Views: 25.6ms | ActiveRecord: 18.9ms)
+
+
