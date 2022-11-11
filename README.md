@@ -18,7 +18,7 @@ Postgresql version 14.5
 ```Username: User1, Password: 123456```
 \
 
-
+## Summary
 The app has the basic functionality as described in the assignment. It has been implemented using the Rails mvc framework and
 using the html.erb technology for the views.The likes/hates have been implemented using one table (reactions) with many to many relationships between movies and user. It has a column with a string value that accepts only the strings 'LIKE', 'HATE', that is being validated by the Reaction controller. Also new routes and actions (inside the movies controller) have been implemented to support the reaction functionality.
 \
