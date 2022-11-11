@@ -9,13 +9,13 @@
 User.destroy_all
 Movie.destroy_all
 Reaction.destroy_all
-user1 = User.create(username: 'Nikos Kalogeropoulos', password: '123456')
-user2 = User.create(username: 'Petros Kalogeropoulos', password: '123456')
-user3 = User.create(username: 'Nikos Papadopoulos', password: '123456')
+user1 = User.create(username: 'User1', password: '123456')
+user2 = User.create(username: 'User2', password: '123456')
+user3 = User.create(username: 'User3', password: '123456')
 
-movie1 = Movie.create(title: 'Lord of the Rings', description: 'One of the best movies of our time', user_id: user1.id)
+movie1 = Movie.create(title: 'Lord of the Rings', description: 'One of the best movies of our time', user_id: user1.id, created_at: "1996-02-02")
 movie2 = Movie.create(title: 'Lord of the Rings 2', description: 'One of the best movies of our time', user_id: user2.id)
-movie3 = Movie.create(title: 'Lord of the Rings 3', description: 'One of the best movies of our time', user_id: user3.id)
+movie3 = Movie.create(title: 'Lord of the Rings 3', description: 'One of the best movies of our time', user_id: user3.id, created_at: "1996-04-12")
 
 reaction1 = Reaction.create(ttype: "LIKE", user_id: user1.id, movie_id: movie3.id)
 reaction2 = Reaction.create(ttype: "HATE", user_id: user1.id, movie_id: movie2.id)

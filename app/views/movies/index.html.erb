@@ -5,5 +5,22 @@
 <% end %>
 <ul>
 <h1>All movies</h1>
-    <%= render @movies%>
+<% url_param = nil %>
+<% if current_user %>
+    <h3>    <%= link_to "Add movie", new_movie_url %></h3>
+<% end %>
+<% if params[:user_id]%>
+<b>FILTERS:</b> <%= link_to "Date Created", user_movies_url(filter: "date") %>, --- 
+<%= link_to "Likes", user_movies_url(filter: "likes") %>, --- 
+<%= link_to "Hates", user_movies_url(filter: "hates") %>, ---
+<%= link_to "Remove filters", user_movies_url %>
+<% else %>
+<b>FILTERS:</b> <%= link_to "Date Created", movies_url(filter: "date") %>, --- 
+<%= link_to "Likes", movies_url( filter: "likes") %>, --- 
+<%= link_to "Hates", movies_url(filter: "hates") %>, ---
+<%= link_to "Remove filters", movies_url %>
+<% end %>
+<br>
+<br>
+<%= render @movies%>
 </ul>

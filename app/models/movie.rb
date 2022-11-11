@@ -11,7 +11,7 @@ class Movie < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
-    has_many :reactions
+    has_many :reactions, dependent: :destroy
 
     has_many :users_reacted,
         through: :reactions,

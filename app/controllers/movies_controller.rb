@@ -6,11 +6,60 @@ class MoviesController < ApplicationController
     def index
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
-            @movies = @user.movies
+            render_user_movies_with_filters(@user)
         else
-            @movies = Movie.all.includes(:user)
+           render_movies_with_filters 
         end
     end
+
+    def render_user_movies_with_filters(user)
+        case params[:filter]
+            when "date"
+                @movies = order_movies_by_creation_date.where("movies.user_id = #{user.id}")
+            when "likes"
+                @movies = order_movies_by_number_of_likes.where("movies.user_id = #{user.id}")
+            when "hates"
+                @movies = order_movies_by_number_of_hates.where("movies.user_id = #{user.id}")
+            else
+                @movies = user.movies
+            end
+    end
+
+    def render_movies_with_filters
+        case params[:filter]
+            when "date"
+                @movies = order_movies_by_creation_date
+            when "likes"
+                @movies = order_movies_by_number_of_likes
+            when "hates"
+                @movies = order_movies_by_number_of_hates
+            else
+                @movies = Movie.all.includes(:user)
+            end
+    end
+
+    def order_movies_by_creation_date
+        Movie.order("created_at DESC").includes(:user)
+    end
+
+    def order_movies_by_number_of_likes
+        Movie
+        .joins(:reactions)
+        .select("
+            movies.*, 
+            sum(case when reactions.ttype = 'LIKE' then 1 else 0 end) as c")
+        .order("c DESC")
+        .group('movies.id').includes(:user)
+    end
+
+    def order_movies_by_number_of_hates
+        Movie
+        .joins(:reactions)
+        .select("movies.*, sum(case when reactions.ttype='HATE' then 1 else 0 end) as c")
+        .order("c DESC")
+        .group('movies.id').includes(:user)
+    end
+
     
     def user_cant_react_to_his_movies
         movie = Movie.find_by(id: params[:id])
@@ -28,7 +77,7 @@ class MoviesController < ApplicationController
         @movie = Movie.create(movie_params)
         @movie.user_id = current_user.id
         if @movie.save
-            redirect_to movie_url(@movie)
+            redirect_to movies_url
         else
             flash.now[:errors] = @movie.errors.full_messages
             render :new
